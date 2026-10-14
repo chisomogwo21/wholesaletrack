@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #111814;
+    --color-secondary: #1F6B45;
+    --color-tertiary: #E5E9E2;
+    --color-neutral: #D7DDD6;
+    --color-surface: #FFFFFF;
+    --color-on-surface: #111814;
+    --color-muted: #5E665F;
+    --color-accent: #20EFA0;
+    --color-border: #E5E7EB;
+    --color-error: #B8422E;
+  }
+
+  body {
+    background-color: var(--color-tertiary);
+    color: var(--color-on-surface);
+    font-family: 'Plein', 'Syne', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar matching brutalist aesthetic */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E5E9E2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5E665F;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #111814;
+  }
+}
+
+@layer components {
+  /* Headline tiers per design.md */
+  .type-headline-display {
+    font-family: 'Plein', 'Syne', sans-serif;
+    font-size: clamp(48px, 8vw, 132px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  }
+
+  .type-headline-lg {
+    font-family: 'Plein', 'Syne', sans-serif;
+    font-size: clamp(38px, 6vw, 85px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  }
+
+  .type-headline-md {
+    font-family: 'Plein', 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 55px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.036em;
+  }
+
+  .type-headline-sm {
+    font-family: 'Plein', 'Syne', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0px;
+  }
+
+  /* Body tiers */
+  .type-body-lg {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .type-body-md {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .type-body-sm {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  /* Labels and navigation */
+  .type-label-lg {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .type-label-md {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .type-label-sm {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .type-nav {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .type-caption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    height: 48px;
+    padding: 10px 14px;
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--color-primary);
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    border-color: var(--color-secondary);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-on-surface);
+    height: 48px;
+    padding: 10px 14px;
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(17, 24, 20, 0.3);
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background-color: rgba(215, 221, 214, 0.5);
+    border-color: var(--color-primary);
+  }
+  .btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-accent {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    height: 48px;
+    padding: 10px 16px;
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--color-accent);
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-accent:hover:not(:disabled) {
+    background-color: #1ae095;
+    box-shadow: 0 0 16px rgba(32, 239, 160, 0.4);
+  }
+
+  /* Card */
+  .pine-card {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .pine-card-tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--color-on-surface);
+    border: 1px solid rgba(17, 24, 20, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  /* Input */
+  .pine-input {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-size: 15px;
+    border-radius: 0px;
+    padding: 10px 14px;
+    border: 1px solid #D7DDD6;
+    transition: border-color 0.15s ease-in-out;
+    width: 100%;
+  }
+  .pine-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: #FFFFFF;
+  }
+
+  /* Chip */
+  .pine-chip {
+    background-color: var(--color-neutral);
+    color: var(--color-on-surface);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 9999px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Hide scrollbar (keep functional) */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Keyboard focus ring — sharp, matches Pine Computer aesthetic */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Suppress focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Print: hide sidebar and interactive chrome, show content */
+@media print {
+  aside, nav, .print\:hidden { display: none !important; }
+  body { background: white !important; }
+  main { padding: 0 !important; }
+}
